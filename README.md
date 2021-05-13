@@ -9,7 +9,8 @@ To support this, there's a publicly available Python package called
 continuing here.
 
 This repository showcases examples of custom rules that can be written using that package, and how to use them together 
-with Cloudrail.
+with Cloudrail. We've also prepared a short video on how to write your own rules, 
+[take a look](https://youtu.be/MQfpKDQAW8o).
 
 ## How should I use this repository with Cloudrail?
 
