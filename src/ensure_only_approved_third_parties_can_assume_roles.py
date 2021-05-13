@@ -24,7 +24,7 @@ class EnsureOnlyAssumesThirdPartiesCanAssumeRoles(BaseRule):
         issues: List[Issue] = []
 
         for role in env_context.roles:
-            for statement in role.assume_role_policy.get_all_statements():
+            for statement in role.assume_role_policy.statements:
                 if statement.effect == StatementEffect.ALLOW:
                     for principal in statement.principal.principal_values:
                         if arn_utils.is_valid_arn(principal) and arn_utils.get_arn_account_id(principal) not in self.approved_list_of_third_parties:
