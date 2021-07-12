@@ -1,15 +1,15 @@
 import unittest
 
 from cloudrail.knowledge.context.aws.account.account import Account
+from cloudrail.knowledge.context.aws.aws_environment_context import AwsEnvironmentContext
 from cloudrail.knowledge.context.aws.iam.policy import AssumeRolePolicy
 from cloudrail.knowledge.context.aws.iam.policy_statement import PolicyStatement, StatementEffect
 from cloudrail.knowledge.context.aws.iam.principal import Principal, PrincipalType
 from cloudrail.knowledge.context.aws.iam.role import Role
-from cloudrail.knowledge.context.environment_context import EnvironmentContext
 from cloudrail.knowledge.rules.base_rule import RuleResultType
 from cloudrail.dev_tools.rule_test_utils import create_empty_entity
-from src.ensure_only_approved_third_parties_can_assume_roles import EnsureOnlyAssumesThirdPartiesCanAssumeRoles
 
+from src.ensure_only_approved_third_parties_can_assume_roles import EnsureOnlyAssumesThirdPartiesCanAssumeRoles
 
 class TestEnsureOnlyAssumesThirdPartiesCanAssumeRoles(unittest.TestCase):
     def setUp(self):
@@ -17,7 +17,7 @@ class TestEnsureOnlyAssumesThirdPartiesCanAssumeRoles(unittest.TestCase):
 
     def test_ensure_only_approved_third_parties_can_assume_roles_fail(self):
         # Arrange
-        context = EnvironmentContext()
+        context = AwsEnvironmentContext()
 
         account = Account("a", "b", False)
         context.accounts.append(account)
@@ -45,7 +45,7 @@ class TestEnsureOnlyAssumesThirdPartiesCanAssumeRoles(unittest.TestCase):
 
     def test_ensure_only_approved_third_parties_can_assume_roles_pass(self):
         # Arrange
-        context = EnvironmentContext()
+        context = AwsEnvironmentContext()
 
         account = Account("a", "b", False)
         context.accounts.append(account)

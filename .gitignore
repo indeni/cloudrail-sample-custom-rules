@@ -132,3 +132,7 @@ dmypy.json
 .terraform
 .terraform.lock.hcl
 plan.out
+
+# IDE stuff
+.idea
+.vscode
