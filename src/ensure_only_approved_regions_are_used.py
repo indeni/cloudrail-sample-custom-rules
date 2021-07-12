@@ -26,7 +26,7 @@ class EnsureOnlyApprovedRegionsAreUsed(BaseRule):
         issues: List[Issue] = []
 
         for resource in env_context.get_all_mergeable_resources():
-            if isinstance(resource, AwsResource):
+            if isinstance(resource, AwsResource) and resource.region:
                 if resource.region not in self.approved_list_of_regions:
                     issues.append(Issue(f'Resource is in region `{resource.region}` which is not approved for usage', resource, resource))
         return issues
