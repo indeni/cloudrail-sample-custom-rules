@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "aws_iam_role" "unapproved_third_party" {
   name = "unapproved_third_party"
   assume_role_policy = <<EOF

@@ -12,3 +12,15 @@ rules_metadata:
     security_layer: iam
     resource_type:
     - iam
+  - cloud_provider: amazon_web_services
+    rule_id: ensure_only_approved_regions_are_used
+    name: Ensure only approved AWS regions are used
+    severity: major
+    description: We should only spin up resources in regions that are approved for use.
+    human_readable_logic: Cloudrail will review all of the resources defined to ensure only the allowed regions are used.
+    remediation_steps_console: Remove the resource.
+    remediation_steps_tf: Change the region used by the aws provider used to create the resource.
+    rule_type: non_context_aware
+    security_layer: iam
+    resource_type:
+    - all
