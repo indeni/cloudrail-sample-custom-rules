@@ -17,13 +17,10 @@ class TestEnsureOnlyAssumesThirdPartiesCanAssumeRoles(unittest.TestCase):
 
     def test_ensure_only_approved_third_parties_can_assume_roles_fail(self):
         # Arrange
-        context = AwsEnvironmentContext()
-
         account = Account("a", "b", False)
-        context.accounts.append(account)
-
         role = Role("a", "don't know", "not_approved_role", [], "not_approved_role", None, None)
-        context.roles.append(role)
+
+        context = AwsEnvironmentContext(accounts=[account], roles=[role])
 
         principal = Principal(principal_type = PrincipalType.AWS, principal_values = ["arn:aws:iam::123456789012:root"])
 
@@ -45,13 +42,10 @@ class TestEnsureOnlyAssumesThirdPartiesCanAssumeRoles(unittest.TestCase):
 
     def test_ensure_only_approved_third_parties_can_assume_roles_pass(self):
         # Arrange
-        context = AwsEnvironmentContext()
-
         account = Account("a", "b", False)
-        context.accounts.append(account)
-
         role = Role("a", "don't know", "not_approved_role", [], "not_approved_role", None, None)
-        context.roles.append(role)
+
+        context = AwsEnvironmentContext(accounts=[account], roles=[role])
 
         principal = Principal(principal_type=PrincipalType.AWS, principal_values=["arn:aws:iam::645376637575:root"])
 

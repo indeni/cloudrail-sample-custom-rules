@@ -20,7 +20,7 @@ class TestEnsureOnlyApprovedRegionsAreUsed(unittest.TestCase):
         # Arrange
         context = AwsEnvironmentContext()
 
-        ec2 = Ec2Instance("", "us-west-1", "", "", None, "", "", "", "", "", "", "", "", "", {})
+        ec2 = Ec2Instance("", "us-west-1", "", "", None, "", "", "", "", "", "", "", "", "")
         context.ec2s.append(ec2)
 
         # Act
@@ -34,7 +34,7 @@ class TestEnsureOnlyApprovedRegionsAreUsed(unittest.TestCase):
         # Arrange
         context = AwsEnvironmentContext()
 
-        ec2 = Ec2Instance("", "us-east-1", "", "", None, "", "", "", "", "", "", "", "", "", {})
+        ec2 = Ec2Instance("", "us-east-1", "", "", None, "", "", "", "", "", "", "", "", "")
         context.ec2s.append(ec2)
 
         # Act
